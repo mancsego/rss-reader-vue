@@ -6,12 +6,16 @@
 </template>
 
 <script>
+import {STORE} from "./services/store/Constants";
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  beforeCreate() {
+    this.$store.dispatch(STORE.POSTS.FETCH)
   }
 }
 </script>

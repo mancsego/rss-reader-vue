@@ -1,11 +1,11 @@
 import Vuex from 'vuex'
-import Vue from "vue";
+import Vue from 'vue'
+
+import devNinetyEight from './modules/devNinetyEight'
 Vue.use(Vuex)
 
-import devNinetyEight from "./modules/devNinetyEight";
-
 export default new Vuex.Store({
-    modules: {
-        devNinetyEight
-    }
+  modules: {
+    devNinetyEight
+  }
 })

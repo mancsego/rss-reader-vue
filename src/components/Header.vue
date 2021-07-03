@@ -37,7 +37,7 @@ export default {
   name: 'Header',
   components: {},
   props: {},
-  data() {
+  data () {
     return {}
   },
   computed: {},

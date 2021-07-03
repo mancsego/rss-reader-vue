@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import FeedItem from "./FeedItem";
+import FeedItem from './FeedItem'
 
 export default {
   name: 'FeedWrapper',
-  components: {FeedItem},
+  components: { FeedItem },
   props: {
     feed: Object
   }

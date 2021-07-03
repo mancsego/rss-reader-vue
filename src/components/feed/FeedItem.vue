@@ -20,7 +20,7 @@ export default {
       return this.item.contentSnippet.replaceAll('Read More', '')
     }
   },
-  created() {
+  created () {
     console.log(this.item)
   }
 }

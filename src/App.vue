@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import {STORE} from "./services/store/Constants";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import { STORE } from './services/store/Constants'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
-const FeedWrapper = () => import("./components/feed/FeedWrapper");
+const FeedWrapper = () => import('./components/feed/FeedWrapper')
 
 export default {
   name: 'App',
@@ -21,11 +21,11 @@ export default {
     Header
   },
   computed: {
-    feed() {
+    feed () {
       return this.$store.state.devNinetyEight
     }
   },
-  beforeCreate() {
+  beforeCreate () {
     this.$store.dispatch(STORE.POSTS.FETCH)
   }
 }

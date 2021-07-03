@@ -10,7 +10,7 @@ export default {
   name: 'Footer',
   components: {},
   props: {},
-  data() {
+  data () {
     return {}
   },
   computed: {},

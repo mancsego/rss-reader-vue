@@ -1,5 +1,5 @@
 export const STORE = {
-    POSTS: {
-        FETCH: 'fetchPosts'
-    }
+  POSTS: {
+    FETCH: 'fetchPosts'
+  }
 }

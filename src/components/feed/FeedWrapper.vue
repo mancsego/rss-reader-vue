@@ -1,23 +1,20 @@
 <template>
-  <div>
-    FeedWrapper
+  <div class="container mx-auto">
+    {{ feed.title }}
+    <div class="grid grid-cols-3 gap-5">
+      <FeedItem v-for="feedItem in feed.posts" :item="feedItem" :key="feedItem.link"/>
+    </div>
   </div>
-
 </template>
 
 <script>
+import FeedItem from "./FeedItem";
+
 export default {
   name: 'FeedWrapper',
-  components: {},
-  props: {},
-  data() {
-    return {}
-  },
-  computed: {},
-  methods: {}
+  components: {FeedItem},
+  props: {
+    feed: Object
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

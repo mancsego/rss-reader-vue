@@ -18,12 +18,12 @@ const devNinetyEight = {
     },
     mutations: {
         updatePosts(mutationObj) {
-            devNinetyEight.feedUrl = mutationObj.feedUrl;
-            devNinetyEight.image = mutationObj.image;
-            devNinetyEight.description = mutationObj.description;
-            devNinetyEight.link = mutationObj.link;
-            devNinetyEight.title = mutationObj.title;
-            devNinetyEight.post = mutationObj.items;
+            devNinetyEight.state.feedUrl = mutationObj.feedUrl;
+            devNinetyEight.state.image = mutationObj.image;
+            devNinetyEight.state.description = mutationObj.description;
+            devNinetyEight.state.link = mutationObj.link;
+            devNinetyEight.state.title = mutationObj.title;
+            devNinetyEight.state.posts = mutationObj.items;
         }
     },
     actions: {

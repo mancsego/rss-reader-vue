@@ -1,12 +1,9 @@
 import Vue from 'vue'
-import VueTailwind from 'vue-tailwind'
 import App from './App.vue'
 import store from './services/store'
+import './assets/styles.css'
 
 Vue.config.productionTip = false
-Vue.use(VueTailwind, {})
-
-
 
 new Vue({
   store,

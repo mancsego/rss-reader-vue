@@ -1,18 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header/>
+    <FeedWrapper v-if="feed.title"/>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import {STORE} from "./services/store/Constants";
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+const FeedWrapper = import("./components/feed/FeedWrapper");
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Footer,
+    FeedWrapper,
+    Header
+  },
+  computed: {
+    feed() {
+      console.log(this.$store.state.devNinetyEight)
+      return this.$store.state.devNinetyEight
+    }
   },
   beforeCreate() {
     this.$store.dispatch(STORE.POSTS.FETCH)

@@ -2,7 +2,7 @@ import Parser from 'rss-parser'
 
 const parser = new Parser()
 
-const PROXY = 'https://cors-anywhere.herokuapp.com/'
+const PROXY = 'https://cors-proxy-dev98.herokuapp.com/'
 
 const FEED = {
   POSTS: 'https://dev98.de/feed/'
@@ -30,8 +30,12 @@ const feed = {
   },
   actions: {
     async fetchPosts () {
-      const feedResponse = await parser.parseURL(PROXY + FEED.POSTS)
-      feed.mutations.updatePosts(feedResponse)
+      try {
+        const feedResponse = await parser.parseURL(PROXY + FEED.POSTS)
+        feed.mutations.updatePosts(feedResponse)
+      } catch (e) {
+        feed.mutations.updatePosts({})
+      }
     }
   },
   getters: {

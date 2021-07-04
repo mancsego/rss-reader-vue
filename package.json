@@ -8,7 +8,6 @@
     "lint": "eslint --fix --ext .vue,.js ./src"
   },
   "dependencies": {
-    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "daisyui": "^1.6.1",
     "eslint-plugin-replace-relative-imports": "^1.0.0",

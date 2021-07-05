@@ -8,6 +8,7 @@
       <div class="form-control">
         <div class="flex space-x-2">
           <input type="text" ref="filter" v-model="filter" placeholder="Filter by tag" class="input input-bordered" :class="''">
+          <button class="btn" @click="() => { this.filter = '' }">Reset filter</button>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const mockRes = {
   description: 'test',
   link: 'test',
   title: 'test',
-  items: ['test']
+  items: [{ categories: ['cat', 'random'], link: 'cat-link' }, { categories: ['random'], link: 'tt-link' }]
 }
 jest.mock('rss-parser', () => {
   return jest.fn().mockImplementation(() => {
@@ -27,4 +27,12 @@ test('Test feed store', async () => {
   expect(feed.state).toEqual(initialState)
   await feed.actions.fetchPosts()
   expect(feed.state.feedUrl).toEqual(mockRes.feedUrl)
+
+  expect(feed.getters.filterByTag(feed.state)('cat')).toEqual([{ 'categories': ['cat', 'random'], 'link': 'cat-link' }])
+  expect(feed.getters.filterByTag(feed.state)('random')).toEqual(
+    [{ categories: ['cat', 'random'], link: 'cat-link' }, { categories: ['random'], link: 'tt-link' }]
+  )
+  expect(feed.getters.filterByTag(feed.state)()).toEqual(
+    [{ categories: ['cat', 'random'], link: 'cat-link' }, { categories: ['random'], link: 'tt-link' }]
+  )
 })

@@ -25,7 +25,9 @@ const feed = {
       feed.state.link = mutationObj.link
       feed.state.title = mutationObj.title
       feed.state.posts = mutationObj.items
-      setTimeout(() => { feed.state.loading = false }, 0)
+      setTimeout(() => {
+        feed.state.loading = false
+      }, 0)
     }
   },
   actions: {
@@ -39,8 +41,14 @@ const feed = {
     }
   },
   getters: {
-    postById () {
-      return 'Null yet'
+    filterByTag (state) {
+      return (tag) => {
+        if (!tag) {
+          return state.posts
+        }
+        const normalizedTag = tag.toLowerCase()
+        return state.posts.filter(post => post.categories.some(cat => cat.toLowerCase().includes(normalizedTag)))
+      }
     }
   }
 }

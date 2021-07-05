@@ -1,7 +1,7 @@
 <template>
   <div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
     <div class="px-2 mx-2 navbar-start">
-      <div class="avatar">
+      <div class="avatar tooltip tooltip-success tooltip-bottom" data-tip="LinkedIn">
         <div class="rounded-full w-10 h-10">
           <a href="https://www.linkedin.com/in/istvan-abraham/"><img src="../../assets/me.png" alt="me"/></a>
         </div>

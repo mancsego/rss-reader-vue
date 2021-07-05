@@ -2,11 +2,7 @@
   <div id="app" class="bg-gray-100">
     <Header/>
     <div class="content mb-4">
-      <FeedWrapper v-if="feed.title && !feed.loading"/>
-      <NoData v-if="!feed.title && !feed.loading"/>
-      <div class="flex justify-center py-40" v-if="feed.loading">
-        <div class="loader w-full"/>
-      </div>
+      <router-view/>
     </div>
     <Footer/>
   </div>
@@ -17,21 +13,11 @@ import { STORE } from './services/store/Constants'
 import Header from './components/basic/Header'
 import Footer from './components/basic/Footer'
 
-const NoData = () => import('./components/feed/NoData')
-const FeedWrapper = () => import('./components/feed/FeedWrapper')
-
 export default {
   name: 'App',
   components: {
-    NoData,
     Footer,
-    FeedWrapper,
     Header
-  },
-  computed: {
-    feed () {
-      return this.$store.state.feed
-    }
   },
   beforeCreate () {
     this.$store.dispatch(STORE.POSTS.FETCH)

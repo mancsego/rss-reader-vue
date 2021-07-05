@@ -15,7 +15,7 @@ const feed = {
     description: null,
     link: null,
     title: null,
-    posts: null
+    posts: []
   },
   mutations: {
     updatePosts (mutationObj) {
@@ -48,6 +48,11 @@ const feed = {
         }
         const normalizedTag = tag.toLowerCase()
         return state.posts.filter(post => post.categories.some(cat => cat.toLowerCase().includes(normalizedTag)))
+      }
+    },
+    getByGuid (state) {
+      return (guid) => {
+        return state.posts.filter(post => post.guid.substring(post.guid.indexOf('?p=') + 1) === guid)
       }
     }
   }

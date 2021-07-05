@@ -3,7 +3,7 @@
     <div class="card-body pb-0">
       <div class="card-title h-20 mb-2">
         <a target="_blank" rel="noopener noreferrer" class="hover:text-blue-800" :href="item.link">
-          <h2>{{item.title }}</h2>
+          <h2>{{ item.title }}</h2>
         </a>
       </div>
       <div class="text-gray-500">
@@ -17,14 +17,14 @@
       <div class="divider"></div>
       <div class="pb-5">{{ content }}</div>
     </div>
-    <a target="_blank" rel="noopener noreferrer" class="text-blue-600" :href="item.link">
+    <router-link class="text-blue-600" :to="link">
       <button class="btn btn-outline">Read more...</button>
-    </a>
+    </router-link>
   </div>
 </template>
 
 <script>
-import Tag from '@/components/basic/Tag'
+const Tag = () => import('@/components/basic/Tag')
 
 export default {
   name: 'FeedItem',
@@ -35,6 +35,10 @@ export default {
   computed: {
     content () {
       return this.item.contentSnippet.replaceAll('Read More', '')
+    },
+    link () {
+      const guid = this.item.guid
+      return '/post/' + guid.substring(guid.indexOf('?p=') + 1)
     },
     pubDate () {
       return new Date(this.item.pubDate).toDateString()
